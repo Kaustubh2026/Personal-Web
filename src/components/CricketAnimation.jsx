@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { Stars, Float, useGLTF, Environment, MeshDistortMaterial, Text3D, Center } from '@react-three/drei';
 import { FaSun, FaMoon, FaPhone, FaFileDownload } from 'react-icons/fa';
+import profileImage from '../assets/kaustubh-profile.jpg';
 
 // Add Global Styles for Custom Cursor
 const GlobalStyle = createGlobalStyle`
@@ -368,20 +369,31 @@ const ThemeToggle = styled(motion.button)`
   }
 `;
 
-const ProfileSection = styled.div`
+const ProfileContainer = styled(motion.div)`
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #00ffe5;
   position: relative;
-  width: 300px;
-  height: 300px;
   margin-bottom: 2rem;
-  z-index: 3;
-  
+  box-shadow: 0 0 20px rgba(0, 255, 229, 0.3);
+  z-index: 2;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(0, 255, 229, 0.2), transparent);
+    z-index: 1;
+  }
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
-    border: 2px solid var(--primary);
-    box-shadow: 0 0 20px rgba(0, 255, 229, 0.3);
+    object-position: top center;
+    transform: scale(1.1);
   }
 `;
 
@@ -437,18 +449,7 @@ const ModernIntro = ({ onAnimationComplete }) => {
 
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Auto-complete after 8 seconds if not clicked
-    const autoCompleteTimer = setTimeout(() => {
-      if (isVisible) {
-        setIsVisible(false);
-        if (onAnimationComplete) {
-          onAnimationComplete();
-        }
-      }
-    }, 8000);
-
     return () => {
-      clearTimeout(autoCompleteTimer);
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [isVisible, onAnimationComplete]);
@@ -481,85 +482,34 @@ const ModernIntro = ({ onAnimationComplete }) => {
             ref={animationRef}
           >
             <CanvasContainer>
-              <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-                <ambientLight intensity={0.5} />
+              <Canvas camera={{ position: [0, 0, 8] }}>
+                <ambientLight intensity={0.3} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
-                <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-                <TeaCupModel />
-                <Environment preset="city" />
+                <Stars radius={300} depth={60} count={5000} factor={4} saturation={0} fade speed={0.5} />
+                <Environment preset="night" />
               </Canvas>
             </CanvasContainer>
             
             <ContentWrapper>
-              <ProfileSection>
-                <img src="/your-photo.jpg" alt="Your Profile" />
-              </ProfileSection>
-
-              <Title 
-                data-text="CYBER CRICKET"
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
+              <ProfileContainer
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               >
-                CYBER CRICKET
-              </Title>
-              <Subtitle
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-              >
-                Where Technology Meets Cricket Excellence
-              </Subtitle>
+                <img src={profileImage} alt="Kaustubh Muley" />
+              </ProfileContainer>
               
-              <ActionButtons>
-                <ActionButton
-                  href="/your-cv.pdf"
-                  download
-                  primary
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                >
-                  <FaFileDownload /> Download CV
-                </ActionButton>
-                <ActionButton
-                  href="tel:+your-phone-number"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                >
-                  <FaPhone /> Call Me
-                </ActionButton>
-              </ActionButtons>
-
+              <Title data-text="Kaustubh Muley">Kaustubh Muley</Title>
+              <Subtitle>I love tea</Subtitle>
               <CTAButton
                 onClick={handleEnterClick}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
               >
                 Enter Arena
               </CTAButton>
-              
-              <SocialLinks>
-                {['github', 'linkedin', 'twitter'].map((platform) => (
-                  <SocialLink 
-                    key={platform}
-                    href={`https://${platform}.com`}
-                    target="_blank"
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                    onMouseEnter={() => setIsHovering(true)}
-                    onMouseLeave={() => setIsHovering(false)}
-                  >
-                    <i className={`fab fa-${platform}`}></i>
-                  </SocialLink>
-                ))}
-              </SocialLinks>
             </ContentWrapper>
             
             {/* Floating tea cups */}

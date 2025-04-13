@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FaFileDownload, FaPhone, FaBars, FaTimes } from 'react-icons/fa';
+import { FaFileDownload, FaPhone, FaBars, FaTimes, FaEnvelope } from 'react-icons/fa';
 
 const NavContainer = styled.nav`
   position: fixed;
@@ -55,16 +55,34 @@ const NavLinks = styled.div`
 `;
 
 const NavLink = styled(Link)`
-  color: var(--text);
+  color: #00ffe5;
   text-decoration: none;
   font-family: 'Share Tech Mono', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
   transition: all 0.3s ease;
+  position: relative;
   
   &:hover {
-    color: var(--primary);
-    text-shadow: 0 0 10px var(--primary);
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 255, 229, 0.8);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #00ffe5;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  &:hover::after {
+    width: 80%;
   }
 
   @media (max-width: 768px) {
@@ -73,6 +91,41 @@ const NavLink = styled(Link)`
     text-align: center;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0, 255, 229, 0.1);
+  }
+`;
+
+const MailLink = styled.a`
+  color: #00ffe5;
+  text-decoration: none;
+  font-family: 'Share Tech Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 255, 229, 0.8);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #00ffe5;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  &:hover::after {
+    width: 80%;
   }
 `;
 
@@ -150,8 +203,8 @@ const Navbar = () => {
         <NavLink to="/contact" onClick={closeMenu}>Join Party</NavLink>
         
         <ActionButton 
-          href="/your-cv.pdf" 
-          download 
+          href="/kaustubh-cv.pdf"
+          download="Kaustubh_Muley_CV.pdf"
           primary
           onClick={closeMenu}
           whileHover={{ scale: 1.05 }}
@@ -161,13 +214,17 @@ const Navbar = () => {
         </ActionButton>
         
         <ActionButton 
-          href="tel:+your-phone-number"
+          href="tel:+917972903306"
           onClick={closeMenu}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <FaPhone /> Call
         </ActionButton>
+
+        <MailLink href="mailto:mkaustubh2026@gmail.com" target="_blank" rel="noopener noreferrer">
+          <FaEnvelope /> MAIL
+        </MailLink>
       </NavLinks>
     </NavContainer>
   );

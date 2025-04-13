@@ -3,7 +3,7 @@ import { OrbitControls, Sphere, Stars } from '@react-three/drei';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const glitch = keyframes`
   0% {
@@ -217,7 +217,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Cyber Cricket
+          Kaustubh Muley
         </Title>
 
         <Subtitle
@@ -225,7 +225,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Where Technology Meets Cricket Excellence
+         Web Developer | Competitive Programmer |  Cricket Enthusiast
         </Subtitle>
 
         <CTAButton
@@ -238,7 +238,7 @@ const Home = () => {
 
         <SocialLinks>
           <SocialLink
-            href="https://github.com/yourusername"
+            href="https://github.com/Kaustubh2026"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ y: -5 }}
@@ -246,7 +246,7 @@ const Home = () => {
             <FaGithub />
           </SocialLink>
           <SocialLink
-            href="https://linkedin.com/in/yourusername"
+            href="mailto:mkaustubh2026@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ y: -5 }}
@@ -254,12 +254,12 @@ const Home = () => {
             <FaLinkedin />
           </SocialLink>
           <SocialLink
-            href="https://twitter.com/yourusername"
+            href="https://www.instagram.com/_kaus2bh/"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ y: -5 }}
           >
-            <FaTwitter />
+            <FaInstagram />
           </SocialLink>
         </SocialLinks>
       </HeroSection>

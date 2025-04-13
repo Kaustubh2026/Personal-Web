@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 const glitch = keyframes`
   0% {
@@ -405,7 +405,7 @@ const Contact = () => {
               whileHover={{ y: -5 }}
             >
               <InfoIcon><FaEnvelope /></InfoIcon>
-              <InfoText>contact@cybercricket.com</InfoText>
+              <InfoText>mkaustubh2026@gmail.com</InfoText>
             </InfoItem>
             <InfoItem
               initial={{ opacity: 0, y: 20 }}
@@ -414,7 +414,7 @@ const Contact = () => {
               whileHover={{ y: -5 }}
             >
               <InfoIcon><FaPhone /></InfoIcon>
-              <InfoText>+1 (555) 123-4567</InfoText>
+              <InfoText>+91 7972903306</InfoText>
             </InfoItem>
             <InfoItem
               initial={{ opacity: 0, y: 20 }}
@@ -423,13 +423,13 @@ const Contact = () => {
               whileHover={{ y: -5 }}
             >
               <InfoIcon><FaMapMarkerAlt /></InfoIcon>
-              <InfoText>Cyber Cricket Arena, Digital City</InfoText>
+              <InfoText>Pune,India</InfoText>
             </InfoItem>
           </InfoList>
           
           <SocialLinks>
             <SocialLink
-              href="https://github.com/yourusername"
+              href="https://github.com/Kaustubh2026"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5 }}
@@ -437,7 +437,7 @@ const Contact = () => {
               <FaGithub />
             </SocialLink>
             <SocialLink
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/kaustubh-muley-827b76257/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5 }}
@@ -445,12 +445,12 @@ const Contact = () => {
               <FaLinkedin />
             </SocialLink>
             <SocialLink
-              href="https://twitter.com/yourusername"
+              href="https://instagram.com/_kaus2bh/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5 }}
             >
-              <FaTwitter />
+              <FaInstagram />
             </SocialLink>
           </SocialLinks>
         </ContactInfo>

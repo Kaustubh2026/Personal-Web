@@ -3,8 +3,9 @@ import styled, { keyframes, css } from 'styled-components';
 import { motion, useAnimation, useInView as useFramerInView } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { Stars, Float, useGLTF, Environment, MeshDistortMaterial, Text3D, Center } from '@react-three/drei';
-import { FaCode, FaBrain, FaRocket, FaServer, FaGithub, FaLinkedin, FaTwitter, FaDatabase, FaTrophy, FaChartLine, FaRobot } from 'react-icons/fa';
+import { FaCode, FaBrain, FaRocket, FaServer, FaGithub, FaLinkedin, FaInstagram, FaDatabase, FaTrophy, FaChartLine, FaRobot } from 'react-icons/fa';
 import { useMediaQuery } from 'react-responsive';
+import profileImage from '../assets/kaustubh-profile.jpg';
 
 // Advanced animations
 const noise = keyframes`
@@ -23,14 +24,14 @@ const noise = keyframes`
 
 const float = keyframes`
   0% { transform: translateY(0px) }
-  50% { transform: translateY(-10px) }
+  50% { transform: translateY(-2px) }
   100% { transform: translateY(0px) }
 `;
 
 const pulse = keyframes`
-  0% { opacity: 0.8; }
+  0% { opacity: 0.95; }
   50% { opacity: 1; }
-  100% { opacity: 0.8; }
+  100% { opacity: 0.95; }
 `;
 
 const fadeIn = keyframes`
@@ -101,7 +102,6 @@ const AboutContainer = styled(motion.div)`
   color: #fff;
   overflow: hidden;
   perspective: 1000px;
-  animation: ${fadeIn} 1s ease-out;
 
   &::before {
     content: '';
@@ -111,28 +111,14 @@ const AboutContainer = styled(motion.div)`
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(circle at 50% 50%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 0% 0%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 100% 100%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 50% 50%, rgba(255, 0, 128, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 0% 0%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
     z-index: 0;
   }
 
   &::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    background: linear-gradient(
-      to bottom,
-      transparent 50%,
-      rgba(0, 255, 252, 0.1) 50%
-    );
-    background-size: 100% 4px;
-    z-index: 1;
-    pointer-events: none;
-    animation: ${scanline} 8s linear infinite;
+    display: none;
   }
 `;
 
@@ -180,12 +166,13 @@ const CharacterCard = styled(motion.div)`
 
 const CharacterImageContainer = styled.div`
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
   flex-shrink: 0;
   transform-style: preserve-3d;
   perspective: 1000px;
-  animation: ${slideIn} 1s ease-out 0.3s both;
+  margin: 0 auto;
+  margin-bottom: 2rem;
 `;
 
 const CharacterImage = styled.div`
@@ -196,11 +183,11 @@ const CharacterImage = styled.div`
   overflow: hidden;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.5s ease, border-color 0.5s ease;
-  animation: ${float} 6s ease-in-out infinite;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 
   &:hover {
     border-color: rgba(0, 255, 252, 0.8);
+    transform: scale(1.01);
   }
 
   &::before {
@@ -210,31 +197,22 @@ const CharacterImage = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(0, 255, 252, 0.3), transparent);
+    background: linear-gradient(45deg, rgba(0, 255, 252, 0.1), transparent);
     mix-blend-mode: overlay;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(0, 255, 252, 0.1) 0%, transparent 70%);
-    animation: ${pulse} 3s infinite;
   }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: contrast(1.2) brightness(0.9);
-    transition: transform 0.5s ease;
+    object-position: top center;
+    transform: scale(1.1);
+    filter: contrast(1.05) brightness(1);
+    transition: transform 0.3s ease;
   }
 
   &:hover img {
-    transform: scale(1.05);
+    transform: scale(1.12);
   }
 `;
 
@@ -494,27 +472,22 @@ const itemVariants = {
 };
 
 const stats = [
-  { label: 'Batting Average', value: '99.9' },
-  { label: 'Strike Rate', value: '200+' },
-  { label: 'Wickets', value: '50' },
-  { label: 'Economy', value: '3.5' }
+  { label: 'Name', value: 'Kaustubh Muley' },
+  { label: 'Phone', value: '+91 7972903306' },
+  { label: 'Email', value: 'mkaustubh2026@gmail.com' },
+  { label: 'Interests', value: 'Cricket & CP' }
 ];
 
 const skills = [
   {
     title: 'Frontend',
     icon: <FaCode />,
-    items: ['React', 'Next.js', 'TypeScript', 'Styled Components', 'Framer Motion']
-  },
-  {
-    title: 'Backend',
-    icon: <FaServer />,
-    items: ['Node.js', 'Express', 'Python', 'Django', 'REST APIs']
+    items: ['React','TypeScript', 'Styled Components', 'Framer Motion','HTML','CSS','JavaScript']
   },
   {
     title: 'Database',
     icon: <FaDatabase />,
-    items: ['MongoDB', 'PostgreSQL', 'Redis', 'Firebase', 'Supabase']
+    items: ['SQL','Redis','Supabase']
   },
   {
     title: 'Cricket Analytics',
@@ -522,14 +495,9 @@ const skills = [
     items: ['Match Analysis', 'Player Statistics', 'Performance Metrics', 'Data Visualization']
   },
   {
-    title: 'Data Visualization',
-    icon: <FaChartLine />,
-    items: ['D3.js', 'Chart.js', 'Tableau', 'Power BI', 'Custom Dashboards']
-  },
-  {
     title: 'AI/ML',
     icon: <FaRobot />,
-    items: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'Computer Vision', 'NLP']
+    items: ['LLMs','Scikit-learn','NLP']
   }
 ];
 
@@ -540,7 +508,7 @@ const About = () => {
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useFramerInView(ref, {
-    once: false,
+    once: true,
     amount: 0.2
   });
 
@@ -550,39 +518,21 @@ const About = () => {
     }
   }, [controls, isInView]);
 
-  const handleMouseMove = (e) => {
-    if (!cardRef.current || isMobile) return;
-    
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = (y - centerY) / 20;
-    const rotateY = (centerX - x) / 20;
-    
-    cardRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  };
-
-  const handleMouseLeave = () => {
-    if (!cardRef.current) return;
-    cardRef.current.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-  };
+  const handleMouseMove = () => {};
+  const handleMouseLeave = () => {};
 
   return (
     <AboutContainer
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.3 }}
     >
       <CanvasContainer>
         <Canvas camera={{ position: [0, 0, 8] }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={2} />
-          <pointLight position={[-10, -10, -10]} intensity={1} color="#ff0080" />
-          <Stars radius={300} depth={60} count={7000} factor={4} saturation={0} fade speed={1.5} />
+          <ambientLight intensity={0.3} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff0080" />
+          <Stars radius={300} depth={60} count={5000} factor={4} saturation={0} fade speed={0.5} />
           <Model />
           <Environment preset="night" />
         </Canvas>
@@ -591,22 +541,20 @@ const About = () => {
       <Content ref={ref}>
         <CharacterCard 
           ref={cardRef}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           <CharacterImageContainer>
             <CharacterImage>
-              <img src="/profile.jpg" alt="Profile" />
+              <img src={profileImage} alt="Kaustubh Muley" />
             </CharacterImage>
           </CharacterImageContainer>
           <CharacterInfo>
-            <CharacterTitle>Cyber Cricketer</CharacterTitle>
+            <CharacterTitle>Kaustubh Muley</CharacterTitle>
             <CharacterDescription>
-              A full-stack developer with a passion for cricket analytics and technology.
-              Combining the power of code with the elegance of cricket to create innovative solutions.
+              A passionate developer with a love for competitive programming and cricket.
+              Combining analytical thinking with creative problem-solving to build innovative solutions.
             </CharacterDescription>
             <StatsContainer>
               {stats.map((stat, index) => (
@@ -624,7 +572,7 @@ const About = () => {
             </StatsContainer>
             <SocialLinks>
               <SocialLink 
-                href="https://github.com/yourusername" 
+                href="https://github.com/Kaustubh2026" 
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -5 }}
@@ -632,7 +580,7 @@ const About = () => {
                 <FaGithub />
               </SocialLink>
               <SocialLink 
-                href="https://linkedin.com/in/yourusername" 
+                href="https://www.linkedin.com/in/kaustubh-muley-827b76257/" 
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -5 }}
@@ -640,12 +588,12 @@ const About = () => {
                 <FaLinkedin />
               </SocialLink>
               <SocialLink 
-                href="https://twitter.com/yourusername" 
+                href="https://www.instagram.com/_kaus2bh/" 
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -5 }}
               >
-                <FaTwitter />
+                <FaInstagram />
               </SocialLink>
             </SocialLinks>
           </CharacterInfo>
