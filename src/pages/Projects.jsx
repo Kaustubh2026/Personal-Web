@@ -191,6 +191,27 @@ const ProjectDescription = styled.p`
   font-family: 'Share Tech Mono', monospace;
 `;
 
+const ProjectTech = styled.div`
+  margin-bottom: 1.5rem;
+`;
+
+const TechLabel = styled.span`
+  color: #fc00ff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: 'Share Tech Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.5rem;
+`;
+
+const TechStack = styled.span`
+  color: rgba(0, 255, 252, 0.7);
+  font-size: 0.9rem;
+  font-family: 'Share Tech Mono', monospace;
+  line-height: 1.4;
+`;
+
 const ProjectLinks = styled.div`
   display: flex;
   gap: 1rem;
@@ -290,6 +311,10 @@ const Projects = () => {
               <ProjectContent>
                 <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectDescription>{project.description}</ProjectDescription>
+                <ProjectTech>
+                  <TechLabel>Tech Stack:</TechLabel>
+                  <TechStack>{project.tech}</TechStack>
+                </ProjectTech>
                 <ProjectLinks>
                   <ProjectLink
                     href={project.github}
