@@ -213,42 +213,48 @@ const projects = [
   {
     title: "Krishisanjivani",
     description: "A platform for farmers to get fair price for their crops and many more.",
-    image: "/project1.jpg",
+    image: "https://ik.imagekit.io/storybird/images/67154d3f-f221-481d-81b2-370cda2b1d7a/23_383184328.png?tr=q-80",
+    tech: "React,ARIMA ,Random Forest, Tailwind CSS",
     github: "https://github.com/Kaustubh2026/KrishisanjivaniFM",
     live: "https://krishisanjivani-fm.vercel.app/"
   },
   {
     title: "Nature Nurture",
     description: "Nature Nurture is a web platform that helps parents discover and book nature-based activities for children aged 2-8, promoting outdoor play and reducing screen time.",
-    image: "/project2.jpg",
+    image: "https://source.unsplash.com/random/800x600?Kids",
+    tech: "React,Tailwind CSS ,SQL,Railway",
     github: "https://github.com/Kaustubh2026/Projectone",
     live: "https://projectone-chi-seven.vercel.app/"
   },
   {
     title: "BBros",
     description: "• Designed a real-time social media analytics tool. That Generates Ads for the company using Streamlit and Lang Flow framework. ",
-    image: "/project3.jpg",
+    image: "https://source.unsplash.com/random/800x600?food",
+    tech: "LangFlow,AstraDB",
     github: "https://github.com/Tarunkasliwal/BeerBros_mumbai",
     live: "https://project3.com"
   },
   {
     title: "WeatherUI",
     description: "Designed a real-time weather app using React and OpenWeather API. ",
-    image: "/project3.jpg",
+    image: "https://source.unsplash.com/random/800x600?weather",
+    tech: "React,OpenWeather API,Tailwind CSS ,Material UI",
     github: "https://github.com/Kaustubh2026/WeatherUI",
     live: "https://weather-ui-nu.vercel.app/"
   },
   {
     title: "FutureForge",
     description: "An AI-powered platform for students to get personalized study plans and resources.",
-    image: "/project3.jpg",
+    image: "https://source.unsplash.com/random/800x600?study",
+    tech: "React,OpenAI API,Node.js,Gemini API,Tailwind CSS ,Material UI",
     github: "https://github.com/Kaustubh2026/FutureForge",
     live: "https://future-forge-omega.vercel.app/"
   }, 
   {
     title: "EventHub",
     description: "Designed a real-time event management system using React and Node.js. ",
-    image: "/project3.jpg",
+    image: "https://source.unsplash.com/random/800x600?event",
+    tech: "React,Node.js,Tailwind CSS ,Material UI ,Vue.js",
     github: "https://github.com/Kaustubh2026/EventHub",
     live: "https://fantastic-bavarois-d51936.netlify.app/"
   }
