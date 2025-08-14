@@ -204,7 +204,7 @@ const Navbar = () => {
         
         <ActionButton 
           href="/kaustubh-cv.pdf"
-          download="Kaustubh_Muley_CV.pdf"
+          download="Kaustubh_Muley_OK.pdf"
           primary
           onClick={closeMenu}
           whileHover={{ scale: 1.05 }}
