@@ -211,25 +211,46 @@ const ProjectLink = styled(motion.a)`
 
 const projects = [
   {
-    title: "Cricket Analytics Hub",
-    description: "Advanced cricket statistics and analytics platform with real-time match data visualization.",
+    title: "Krishisanjivani",
+    description: "A platform for farmers to get fair price for their crops and many more.",
     image: "/project1.jpg",
-    github: "https://github.com/yourusername/project1",
-    live: "https://project1.com"
+    github: "https://github.com/Kaustubh2026/KrishisanjivaniFM",
+    live: "https://krishisanjivani-fm.vercel.app/"
   },
   {
-    title: "Cyber Cricket League",
-    description: "Virtual cricket tournament platform with augmented reality features and live streaming.",
+    title: "Nature Nurture",
+    description: "Nature Nurture is a web platform that helps parents discover and book nature-based activities for children aged 2-8, promoting outdoor play and reducing screen time.",
     image: "/project2.jpg",
-    github: "https://github.com/yourusername/project2",
-    live: "https://project2.com"
+    github: "https://github.com/Kaustubh2026/Projectone",
+    live: "https://projectone-chi-seven.vercel.app/"
   },
   {
-    title: "Cricket Stats AI",
-    description: "AI-powered cricket performance analysis and prediction system using machine learning.",
+    title: "BBros",
+    description: "• Designed a real-time social media analytics tool. That Generates Ads for the company using Streamlit and Lang Flow framework. ",
     image: "/project3.jpg",
-    github: "https://github.com/yourusername/project3",
+    github: "https://github.com/Tarunkasliwal/BeerBros_mumbai",
     live: "https://project3.com"
+  },
+  {
+    title: "WeatherUI",
+    description: "Designed a real-time weather app using React and OpenWeather API. ",
+    image: "/project3.jpg",
+    github: "https://github.com/Kaustubh2026/WeatherUI",
+    live: "https://weather-ui-nu.vercel.app/"
+  },
+  {
+    title: "FutureForge",
+    description: "An AI-powered platform for students to get personalized study plans and resources.",
+    image: "/project3.jpg",
+    github: "https://github.com/Kaustubh2026/FutureForge",
+    live: "https://future-forge-omega.vercel.app/"
+  }, 
+  {
+    title: "EventHub",
+    description: "Designed a real-time event management system using React and Node.js. ",
+    image: "/project3.jpg",
+    github: "https://github.com/Kaustubh2026/EventHub",
+    live: "https://fantastic-bavarois-d51936.netlify.app/"
   }
 ];
 

@@ -475,19 +475,19 @@ const stats = [
   { label: 'Name', value: 'Kaustubh Muley' },
   { label: 'Phone', value: '+91 7972903306' },
   { label: 'Email', value: 'mkaustubh2026@gmail.com' },
-  { label: 'Interests', value: 'Cricket & CP' }
+  { label: 'Interests', value: 'Cricket, CP, AI/ML, Web Development' }
 ];
 
 const skills = [
   {
     title: 'Frontend',
     icon: <FaCode />,
-    items: ['React','TypeScript', 'Styled Components', 'Framer Motion','HTML','CSS','JavaScript']
+    items: ['React','TypeScript', 'Styled Components', 'Framer Motion','HTML','CSS','JavaScript' ,'Material UI']
   },
   {
     title: 'Database',
     icon: <FaDatabase />,
-    items: ['SQL','Redis','Supabase']
+    items: ['SQL','Redis','Supabase','MongoDB','AstraDB']
   },
   {
     title: 'Cricket Analytics',
@@ -497,7 +497,7 @@ const skills = [
   {
     title: 'AI/ML',
     icon: <FaRobot />,
-    items: ['LLMs','Scikit-learn','NLP']
+    items: ['LLMs','LangFlow','NLP' ,'LangChain','Streamlit','Python','Pandas','NumPy','Scikit-learn']
   }
 ];
 
