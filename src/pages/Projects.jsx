@@ -42,6 +42,33 @@ const glitch = keyframes`
   }
 `;
 
+const shimmer = keyframes`
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+`;
+
+const float = keyframes`
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+`;
+
+const pulse = keyframes`
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+`;
+
 const ProjectsContainer = styled(motion.div)`
   min-height: 100vh;
   background: #000;
@@ -98,13 +125,18 @@ const PageTitle = styled(motion.h1)`
   text-transform: uppercase;
   letter-spacing: 0.1em;
   animation: ${glitch} 1s linear infinite;
+  background: linear-gradient(90deg, #fff 0%, #00fffc 50%, #fff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   
   @media (max-width: 768px) {
     font-size: 2rem;
   }
 `;
 
-const ProjectsGrid = styled.div`
+const ProjectsGrid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
@@ -113,11 +145,12 @@ const ProjectsGrid = styled.div`
 
 const ProjectCard = styled(motion.div)`
   background: rgba(0, 255, 252, 0.05);
-  border: 1px solid rgba(0, 255, 252, 0.2);
+  border: 2px solid rgba(0, 255, 252, 0.2);
   border-radius: 4px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
+  animation: ${float} 3s ease-in-out infinite;
   
   &::before {
     content: '';
@@ -131,9 +164,13 @@ const ProjectCard = styled(motion.div)`
   }
   
   &:hover {
-    transform: translateY(-5px);
-    border-color: rgba(0, 255, 252, 0.5);
-    box-shadow: 0 0 20px rgba(0, 255, 252, 0.3);
+    transform: translateY(-12px) scale(1.02) rotateX(5deg);
+    border-color: rgba(0, 255, 252, 0.8);
+    box-shadow: 
+      0 15px 40px rgba(0, 255, 252, 0.3),
+      0 0 30px rgba(0, 255, 252, 0.2),
+      inset 0 0 20px rgba(0, 255, 252, 0.05);
+    background: rgba(0, 255, 252, 0.08);
   }
 `;
 

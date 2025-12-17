@@ -134,6 +134,26 @@ const CanvasContainer = styled.div`
   animation: ${fadeIn} 2s ease-out;
 `;
 
+const shimmer = keyframes`
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+`;
+
+const borderGlow = keyframes`
+  0%, 100% {
+    border-color: rgba(0, 255, 252, 0.2);
+    box-shadow: 0 0 5px rgba(0, 255, 252, 0.1);
+  }
+  50% {
+    border-color: rgba(0, 255, 252, 0.6);
+    box-shadow: 0 0 20px rgba(0, 255, 252, 0.4);
+  }
+`;
+
 const Content = styled(motion.div)`
   position: relative;
   z-index: 2;
@@ -146,12 +166,14 @@ const Content = styled(motion.div)`
 
 const CharacterCard = styled(motion.div)`
   background: rgba(0, 255, 252, 0.05);
-  border: 1px solid rgba(0, 255, 252, 0.2);
+  border: 2px solid rgba(0, 255, 252, 0.2);
   border-radius: 4px;
   padding: 2rem;
   position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: ${borderGlow} 3s ease-in-out infinite;
   overflow: hidden;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -159,8 +181,19 @@ const CharacterCard = styled(motion.div)`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(0, 255, 252, 0.1));
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 252, 0.1) 50%, transparent 70%);
+    animation: ${shimmer} 3s infinite;
     z-index: 1;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-12px) scale(1.02);
+    background: rgba(0, 255, 252, 0.08);
+    box-shadow: 
+      0 15px 40px rgba(0, 255, 252, 0.3),
+      0 0 30px rgba(0, 255, 252, 0.2),
+      inset 0 0 20px rgba(0, 255, 252, 0.05);
   }
 `;
 

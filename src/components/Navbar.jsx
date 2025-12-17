@@ -199,12 +199,14 @@ const Navbar = () => {
       <NavLinks isOpen={isOpen}>
         <NavLink to="/" onClick={closeMenu}>Home</NavLink>
         <NavLink to="/about" onClick={closeMenu}>Character</NavLink>
+        <NavLink to="/education" onClick={closeMenu}>Education</NavLink>
         <NavLink to="/projects" onClick={closeMenu}>Projects</NavLink>
         <NavLink to="/contact" onClick={closeMenu}>Join Party</NavLink>
         
         <ActionButton 
-          href="/kaustubh-cv.pdf"
-          download="Kaustubh_Muley_OK.pdf"
+          href="https://drive.google.com/file/d/15kzMmTLfz6J_PUyA5FylqdYBitzCWF3r/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
           primary
           onClick={closeMenu}
           whileHover={{ scale: 1.05 }}

@@ -43,6 +43,33 @@ const scanline = keyframes`
   }
 `;
 
+const float = keyframes`
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+`;
+
+const shimmer = keyframes`
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+`;
+
+const pulse = keyframes`
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+`;
+
 const ContactContainer = styled(motion.div)`
   min-height: 100vh;
   background: #000;
@@ -99,11 +126,13 @@ const Content = styled.div`
 
 const ContactForm = styled(motion.form)`
   background: rgba(0, 255, 252, 0.05);
-  border: 1px solid rgba(0, 255, 252, 0.2);
+  border: 2px solid rgba(0, 255, 252, 0.2);
   border-radius: 4px;
   padding: 2rem;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: ${float} 4s ease-in-out infinite;
   
   &::before {
     content: '';
@@ -112,12 +141,22 @@ const ContactForm = styled(motion.form)`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(0, 255, 252, 0.1));
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 252, 0.1) 50%, transparent 70%);
     z-index: 1;
+    pointer-events: none;
+    animation: ${shimmer} 3s infinite;
+  }
+
+  &:hover {
+    border-color: rgba(0, 255, 252, 0.6);
+    box-shadow: 
+      0 15px 40px rgba(0, 255, 252, 0.2),
+      0 0 30px rgba(0, 255, 252, 0.15),
+      inset 0 0 20px rgba(0, 255, 252, 0.05);
   }
 `;
 
-const FormTitle = styled.h2`
+const FormTitle = styled(motion.h2)`
   font-size: 2rem;
   color: #00fffc;
   text-align: center;
