@@ -16,6 +16,7 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     minify: 'terser',
+    chunkSizeWarningLimit: 1000,
     terserOptions: {
       compress: {
         drop_console: true,
@@ -23,16 +24,12 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      external: [],
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
         },
       },
     },
-  },
-  ssr: {
-    external: ['react', 'react-dom'],
   },
   server: {
     port: 3000,
